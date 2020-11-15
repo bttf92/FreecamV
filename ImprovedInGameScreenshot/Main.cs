@@ -9,8 +9,8 @@ namespace FreecamV
         public Main()
         {
             // Load all of the config values from ini
-            Config.DefaultSpeed = Settings.GetValue("Settings", "Speed", 0.5f);
-            Config.ShiftSpeed = Settings.GetValue("Settings", "BoostSpeed", 4.0f);
+            Config.DefaultSpeed = Settings.GetValue("Settings", "Speed", 0.1f);
+            Config.ShiftSpeed = Settings.GetValue("Settings", "BoostSpeed", 2.0f);
             Config.FilterIntensity = Settings.GetValue("Settings", "FilterIntensity", 1.0f);            
             Config.Precision = Settings.GetValue("Settings", "Precision", 1.0f);
             Config.SlowMotionMultiplier = Settings.GetValue("Settings", "SlowMotionMult", 8.5f);
