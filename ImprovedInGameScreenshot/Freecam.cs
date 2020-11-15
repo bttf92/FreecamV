@@ -17,7 +17,7 @@ namespace FreecamV
         static Vector3 OffsetCoords = Vector3.Zero;
         static Scaleform scaleform;
 
-        static bool SlowMode = true;
+        static bool SlowMode = false;
         static bool Frozen = false;
         static bool HUD = true;
         static bool Attached = false;
@@ -79,6 +79,17 @@ namespace FreecamV
                 }
             }
 
+            if (Attached)
+            {
+                OffsetCoords = AttachedEntity.GetPositionOffset(ProcessNewPos(AttachedEntity.GetOffsetPosition(OffsetCoords)));
+                FCamera.AttachTo(AttachedEntity, OffsetCoords);
+
+                Vector3 lookAtPos = Vector3.Add(FCamera.Position, FCamera.Direction);
+                lookAtPos = AttachedEntity.GetPositionOffset(lookAtPos);
+
+                Screen.ShowHelpTextThisFrame($"FoV: {FCamera.FieldOfView}{"\r\r"}PositionOffset{"\r"}X: {OffsetCoords.X}{"\r"}Y: {OffsetCoords.Y}{"\r"}Z: {OffsetCoords.Z}{"\r\r"}LookAtOffset{"\r"}X: {lookAtPos.X}{"\r"}Y: {lookAtPos.Y}{"\r"}Z: {lookAtPos.Z}{"\r"}", false);
+            }
+           
             if (Game.IsControlJustPressed(Control.VehicleHeadlight))
                 HUD = !HUD;
             if (Game.IsControlPressed(Control.FrontendUp))

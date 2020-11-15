@@ -4,11 +4,11 @@ namespace FreecamV
 {
     internal class Config
     {
-        public static float DefaultSpeed = 5.0f;
-        public static float ShiftSpeed = 20.0f;
+        public static float DefaultSpeed = 0.5f;
+        public static float ShiftSpeed = 4.0f;
         public static float Precision = 1.0f;
         public static float FilterIntensity = 1.0f;
-        public static float SlowMotionMultiplier = 5.5f;
+        public static float SlowMotionMultiplier = 8.5f;
 
         public static List<string> Filters = new List<string>()
         {
