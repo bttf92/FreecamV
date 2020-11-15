@@ -1,25 +1,14 @@
-version: 3.0.{build}
-branches:
-  only:
-  - dev
+version: 1.0.{build}
 configuration: Release
 install:
 - cmd: >-
     git submodule update --init --recursive
 
-    nuget restore BackToTheFutureV.sln
+    nuget restore FreecamV.sln
 build:
   verbosity: minimal
 after_build:
 - cmd: >-
-    7z a BackToTheFutureV-dev.zip %APPVEYOR_BUILD_FOLDER%\BackToTheFutureV\bin\Release\*
+    7z a FreecamV.zip %APPVEYOR_BUILD_FOLDER%\ImprovedInGameScreenshot\bin\Release\*
 
-    7z a RogersSierraRailway-dev.zip %APPVEYOR_BUILD_FOLDER%\RogerSierra\bin\Release\*
-
-    7z a KlangRageAudioLibrary.zip %APPVEYOR_BUILD_FOLDER%\KlangRageAudioLibrary\bin\Release\*
-
-    appveyor PushArtifact BackToTheFutureV-dev.zip
-
-    appveyor PushArtifact RogersSierraRailway-dev.zip
-
-    appveyor PushArtifact KlangRageAudioLibrary.zip
+    appveyor PushArtifact FreecamV.zip
